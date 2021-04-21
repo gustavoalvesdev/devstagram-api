@@ -1,1 +1,7 @@
-<h1>ESTA É A HOME</h1>
+<h3>Lista</h3>
+
+<?php 
+    foreach($lista as $item) {
+        echo 'NOME: ' . $item['name'] . '<br />';
+    }
+?>

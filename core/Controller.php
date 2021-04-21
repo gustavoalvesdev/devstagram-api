@@ -1,16 +1,30 @@
 <?php 
 
-class Controller {
+namespace Core;
 
-    public function loadView($viewName, $viewData = array()) {
+class Controller 
+{
+
+    public function loadView($viewName, $viewData = array()) 
+    {
         extract($viewData);
-
-
-
-        require_once 'views/'.$viewName.'.php';
+        
+        require_once 'Views/'.$viewName.'.php';
     } 
 
-    public function actionNotFound() {
+    public function loadTemplate($viewName, $viewData = array())
+    {
+        require_once 'Views/template.php';
+    }
+
+    public function LoadViewInTemplate($viewName, $viewData = arraY())
+    {
+        extract($viewData);
+        require_once 'Views/'.$viewName.'.php';
+    }
+
+    public function actionNotFound() 
+    {
         $this->loadView('not-found');
     }
 }

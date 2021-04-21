@@ -6,13 +6,13 @@ $db_config = array();
 
 if (ENVIRONMENT === 'development') {
     define('BASE_URL', 'http://localhost/estrutura_mvc/');
-    $db_config['dbname'] = 'estrutura_mvc';
+    $db_config['dbname'] = 'mvc_psr4';
     $db_config['host'] = 'localhost';
     $db_config['dbuser'] = 'root';
     $db_config['dbpass'] = '';
 } else if (ENVIRONMENT === 'production') {
     define('BASE_URL', 'http://localhost/estrutura_mvc/');
-    $db_config['dbname'] = 'estrutura_mvc';
+    $db_config['dbname'] = 'mvc_psr4';
     $db_config['host'] = 'localhost';
     $db_config['dbuser'] = 'root';
     $db_config['dbpass'] = '';
