@@ -3,18 +3,28 @@
 namespace Controllers;
 
 use \Core\Controller;
-use \Models\Usuario;
 
-class HomeController extends Controller {
+class HomeController extends Controller 
+{
 
     public function index() 
     {
-        $array = array();
+        $array = array(
+            'nome' => 'Gustavo',
+            'idade' => 29
+        );
 
-        $usuarios = new Usuario();
-        $array['lista'] = $usuarios->getAll();
+        $this->returnJson($array);
+    }
 
-        $this->loadTemplate('home', $array);
+    public function testando()
+    {
+        echo 'FUNCIONOU';
+    }
+
+    public function visualizarUsuarios($id)
+    {
+        echo 'ID: ' . $id;
     }
 
 }
