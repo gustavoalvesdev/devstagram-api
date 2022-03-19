@@ -14,7 +14,7 @@ Conteúdo das auls de criação da API do Projeto Devstagram da Plataforma da B7
 - [x] Preparando MVC PSR-4 para WebService (2/3) 
 - [x] Preparando MVC PSR-4 para WebService (3/3) 
 - [x] Devstagram API: Estrutura e Rotas
-- [ ] Devstagram API: Criando o Login
+- [x] Devstagram API: Criando o Login
 - [ ] Devstagram API: Criando a Estrutura JWT
 - [ ] Devstagram API: Criando o cadastro
 - [ ] Devstagram API: Validando o JWT
