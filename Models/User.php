@@ -3,6 +3,7 @@
 namespace Models;
 
 use Core\Model;
+use Models\Jwt;
 
 class User extends Model 
 {
@@ -13,7 +14,7 @@ class User extends Model
     {
         $array = array();
 
-        $sql = 'SELECT * FROM usuarios';
+        $sql = 'SELECT * FROM users';
         $sql = $this->db->query($sql);
 
         if ($sql->rowCount() > 0) {
@@ -47,5 +48,10 @@ class User extends Model
         }
 
         return false;
+    }
+
+    public function createJwt() {
+        $jwt = new Jwt();
+        return $jwt->create(array('id_user' => $this->id_user));
     }
 }

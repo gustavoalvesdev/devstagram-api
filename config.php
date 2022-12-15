@@ -2,20 +2,26 @@
 
 require_once 'environment.php';
 
-$db_config = array();
+
+
+global $config;
+
+$config = array();
 
 if (ENVIRONMENT === 'development') {
     define('BASE_URL', 'http://localhost/estrutura_mvc/');
-    $db_config['dbname'] = 'mvc_psr4';
-    $db_config['host'] = 'localhost';
-    $db_config['dbuser'] = 'root';
-    $db_config['dbpass'] = '';
+    $config['dbname'] = 'mvc_psr4';
+    $config['host'] = 'localhost';
+    $config['dbuser'] = 'root';
+    $config['dbpass'] = '';
+    $config['jwt_secret_key'] = 'abC123!';
 } else if (ENVIRONMENT === 'production') {
     define('BASE_URL', 'http://localhost/estrutura_mvc/');
-    $db_config['dbname'] = 'mvc_psr4';
-    $db_config['host'] = 'localhost';
-    $db_config['dbuser'] = 'root';
-    $db_config['dbpass'] = '';
+    $config['dbname'] = 'mvc_psr4';
+    $config['host'] = 'localhost';
+    $config['dbuser'] = 'root';
+    $config['dbpass'] = '';
+    $config['jwt_secret_key'] = 'abC123!';
 }
 
 global $db;

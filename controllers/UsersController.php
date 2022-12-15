@@ -27,7 +27,7 @@ class UsersController extends Controller
 
                 if ($users->checkCredentials($data['email'], $data['pass'])) {
 
-                    $array['jwt'] = '...';
+                    $array['jwt'] = $users->createJwt();
 
                 } else {
                     http_response_code(403);
