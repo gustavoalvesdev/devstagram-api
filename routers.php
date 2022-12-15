@@ -5,7 +5,7 @@ global $routes;
 $routes = array();
 
 $routes['/users/login'] = '/users/login';
-$routes['/users/new'] = '/users/newRecord';
+$routes['/users/new'] = '/users/new_record';
 $routes['/users/{id}'] = '/users/view/:id';
 $routes['/users/{id}/feed'] = '/users/feed/:id';
 $routes['/users/{id}/photos'] = '/users/photos/:id';

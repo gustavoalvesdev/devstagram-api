@@ -2,8 +2,6 @@
 
 require_once 'environment.php';
 
-
-
 global $config;
 
 $config = array();
@@ -28,7 +26,7 @@ global $db;
 
 try {
 
-    $db = new PDO('mysql:host='.$db_config['host'].';dbname='.$db_config['dbname'], $db_config['dbuser'], $db_config['dbpass']);
+    $db = new PDO('mysql:host='.$config['host'].';dbname='.$config['dbname'], $config['dbuser'], $config['dbpass']);
 
 } catch(PDOException $e) {
     echo 'ERRO: ' . $e->getMessage();
