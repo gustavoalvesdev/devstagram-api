@@ -31,7 +31,7 @@ class UsersController extends Controller
 
                 } else {
                     http_response_code(403);
-                    $array['error'] = 'Access Denied';
+                    $array['error'] = 'Acesso Negado';
 
                 }
 
@@ -78,6 +78,42 @@ class UsersController extends Controller
 
         } else {
             $array['error'] = 'Método de requisição incompatível';
+        }
+
+        $this->returnJson($array);
+    }
+
+    public function view($id) {
+        $array = array('error' => '', 'logged' => false);
+
+        $method = $this->getMethod();
+        $data = $this->getRequestData();
+
+        $users = new User();
+
+        if (!empty($data['jwt']) && ($users->validateJwt($data['jwt']))) {
+
+            $array['logged'] = true;
+
+            $array['is_me'] = false;
+
+            if ($id == $users->getId()) {
+                $array['is_me'] = true;
+            }
+
+            switch($method) {
+                case 'GET':
+                    break;
+                case 'PUT':
+                    break;
+                case 'DELETE':
+                    break;
+                default:
+                    $array['error'] = 'Método ' . $method . ' não disponível';
+            }
+
+        } else {
+            $array['error'] = 'Acesso negado';
         }
 
         $this->returnJson($array);
