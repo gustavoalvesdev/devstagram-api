@@ -156,4 +156,36 @@ class User extends Model
             return false;
         }
     }
+
+    public function editInfo($id, $data)
+    {
+        // Verifica se é ele mesmo
+        if ($id == $this->getId()) {
+            
+            $toChange = array();
+
+            if (!empty($data['name'])) {
+                $toChange['name'] = $data['name'];
+            }
+
+            if (!empty($data['email'] && \filter_var($data['email'], \FILTER_VALIDATE_EMAIL) && !$this->emailExists($data['email']))) {
+                $toChange['email'] = $data['email'];
+            } else {
+                return 'Novo e-mail já existente!';
+            }
+
+            if (!empty($data['pass'])) {
+                $toChange['pass'] = \password_hash($data['pass'], PASSWORD_DEFAULT);
+            }
+
+            if (count($toChange) > 0) {
+                
+            } else {
+                return 'Preencha os dados corretamente!';
+            }
+
+        } else {
+            return 'Não é permitido editar outro usuário';
+        }
+    }
 }
